@@ -6,6 +6,9 @@ A micro library to set timeouts and periodic timers.
 
 ## Example
 
+There are two main methods on the `Neutron\TipTop\Clock` object :
+`addPeriodicTimer` and `addTimer`.
+
 ```php
 use Neutron\TipTop\Clock;
 
@@ -15,11 +18,15 @@ declare(ticks=1);
 $clock = new Clock();
 
 // trigger a callback every second
-$clock->set(1, function () { echo "BOOM ! I'm triggered every second !\n"; });
+$clock->addPeriodicTimer(1, function () { echo "BOOM ! I'm triggered every second !\n"; });
 
 // trigger a callback every ten seconds, five times
-$clock->set(10, function () { echo "Doubidou\n"; }, 5);
+$clock->addPeriodicTimer(10, function () { echo "Doubidou\n"; }, 5);
 
+// trigger a callback one time, in 3 seconds
+$clock->addTimer(3, function () { echo "BOOM !\n"; }, 5);
+
+// do your job
 $n = 10;
 while ($n > 0) {
     sleep(1);
@@ -29,8 +36,8 @@ while ($n > 0) {
 
 ## Limitations
 
-- This timer requires you declare ticks in the script the clock is used.
-- Timer won't work as expected with blocking calls (try it before)
+- This clock requires you declare ticks in the script you're running.
+- Clock won't work as expected with long blocking calls (try it before)
 
 ##License
 
