@@ -1,7 +1,7 @@
 {
     "name": "neutron/tip-top",
     "type": "library",
-    "description": "Tip-Top your missing library to set timeouts and periodic timers",
+    "description": "Tip-Top, a library to set timeouts and periodic timers",
     "keywords": ["timeout", "period", "periodic", "timer"],
     "license": "MIT",
     "authors": [
