@@ -1,5 +1,7 @@
 #TIP-TOP
 
+[![Build Status](https://secure.travis-ci.org/romainneutron/Tip-Top.png?branch=master)](https://travis-ci.org/romainneutron/Tip-Top)
+
 A micro library to set timeouts and periodic timers.
 
 ## Example
