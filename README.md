@@ -24,7 +24,10 @@ $clock->addPeriodicTimer(1, function () { echo "BOOM ! I'm triggered every secon
 $clock->addPeriodicTimer(10, function () { echo "Doubidou\n"; }, 5);
 
 // trigger a callback one time, in 3 seconds
-$clock->addTimer(3, function () { echo "BOOM !\n"; }, 5);
+$signature = $clock->addTimer(3, function () { echo "BOOM !\n"; }, 5);
+
+// remove a timer identified by a signature
+$clock->clear($signature);
 
 // do your job
 $n = 10;
