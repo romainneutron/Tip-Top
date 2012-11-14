@@ -32,10 +32,10 @@ class Clock
                 $timer->iterations--;
 
                 if ($timer->iterations > 0) {
-                    if(!isset($toReset[$moment + $timer->period])) {
+                    if (!isset($toReset[$moment + $timer->period])) {
                         $toReset[$moment + $timer->period] = array();
                     }
-                    array_push($toReset[$moment + $timer->period],$timer);
+                    array_push($toReset[$moment + $timer->period], $timer);
                 }
                 $toRemove[] = $moment;
             }
