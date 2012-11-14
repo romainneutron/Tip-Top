@@ -1,0 +1,29 @@
+{
+    "name": "neutron/tip-top",
+    "type": "library",
+    "description": "Tip-Top your missing library to set timeouts and periodic timers",
+    "keywords": ["timeout", "period", "periodic", "timer"],
+    "license": "MIT",
+    "authors": [
+    {
+        "name": "Romain Neutron",
+        "email": "imprec@gmail.com",
+        "homepage": "http://www.lickmychip.com/"
+    }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "ext-pcntl": "*",
+        "ext-posix": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Neutron": "src"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}
