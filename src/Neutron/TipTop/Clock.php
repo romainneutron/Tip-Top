@@ -9,7 +9,6 @@ class Clock
     public function __construct()
     {
         $this->initialize();
-        $this->set(1, function(){echo memory_get_usage()."\n";});
     }
 
     private function initialize()
