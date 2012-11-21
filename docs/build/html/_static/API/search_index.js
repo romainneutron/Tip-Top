@@ -1,7 +1,0 @@
-var search_data = {
-    'index': {
-        'searchIndex': ["neutron","neutron\\tiptop","neutron\\tiptop\\clock","neutron\\tiptop\\clock::__construct","neutron\\tiptop\\clock::addperiodictimer","neutron\\tiptop\\clock::addtimer","neutron\\tiptop\\clock::clear","neutron\\tiptop\\clock::_beat"],
-        'info': [["Neutron","","Neutron.html","","",3],["Neutron\\TipTop","","Neutron\/TipTop.html","","",3],["Clock","Neutron\\TipTop","Neutron\/TipTop\/Clock.html","","",1],["Clock::__construct","Neutron\\TipTop\\Clock","Neutron\/TipTop\/Clock.html#method___construct","()","",2],["Clock::addPeriodicTimer","Neutron\\TipTop\\Clock","Neutron\/TipTop\/Clock.html#method_addPeriodicTimer","(integer $interval, <abbr title=\"Neutron\\TipTop\\callable\">callable<\/abbr> $callback, integer $iterations = INF)","Adds a periodic timer (triggered every interval).",2],["Clock::addTimer","Neutron\\TipTop\\Clock","Neutron\/TipTop\/Clock.html#method_addTimer","(integer $interval, <abbr title=\"Neutron\\TipTop\\callable\">callable<\/abbr> $callback)","Adds a timer (triggered one time, when the interval",2],["Clock::clear","Neutron\\TipTop\\Clock","Neutron\/TipTop\/Clock.html#method_clear","(string $signature = null)","Clears a timer by its signature.",2],["Clock::_beat","Neutron\\TipTop\\Clock","Neutron\/TipTop\/Clock.html#method__beat","()","Internal method for the heartbeat, should not be used.",2]]
-    }
-}
-search_data['index']['longSearchIndex'] = search_data['index']['searchIndex']
