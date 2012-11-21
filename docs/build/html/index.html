@@ -14,12 +14,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         
 
-        <title>Documentation &mdash; Project Name 0.1 documentation</title>
+        <title>Tip-Top ! Documentation &mdash; Tip-Top ! 0.1 documentation</title>
         
     <link rel="stylesheet" href="_static/Alchemy.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
         <link rel="search" type="application/opensearchdescription+xml"
-            title="Search within Project Name 0.1 documentation"
+            title="Search within Tip-Top ! 0.1 documentation"
             href="_static/opensearch.xml"/>
         <link rel="shortcut icon" href="_static/"/>
 
@@ -27,7 +27,7 @@
         <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
-        <link rel="top" title="Project Name 0.1 documentation" href="#" />
+        <link rel="top" title="Tip-Top ! 0.1 documentation" href="#" />
 
         <!-- Use the .htaccess and remove these lines to avoid edge case issues.
              More info: h5bp.com/i/378 -->
@@ -75,7 +75,7 @@
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="brand" href="#">Project Name documentation</a>
+                    <a class="brand" href="#">Tip-Top ! documentation</a>
                     <div class="nav-collapse" id="navigation" class="related">
                         
                         <ul class="nav">
@@ -101,7 +101,7 @@
                         </li>
                     </ul>
                 </div>
-                <a href="#">
+                <a href="https://github.com/romainneutron/Tip-Top">
     <img style="z-index:1200;position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
 </a>
             </div>
@@ -116,11 +116,11 @@
                 	
     <div class="sphinxsidebarwrapper">
   <ul>
-<li><a class="reference internal" href="#">Documentation</a><ul>
+<li><a class="reference internal" href="#">Tip-Top ! Documentation</a><ul>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#disclaimer">Disclaimer</a></li>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic Usage</a></li>
-<li><a class="reference internal" href="#recipes">Recipes</a></li>
 <li><a class="reference internal" href="#handling-exceptions">Handling Exceptions</a></li>
 <li><a class="reference internal" href="#report-a-bug">Report a bug</a></li>
 <li><a class="reference internal" href="#ask-for-a-feature">Ask for a feature</a></li>
@@ -140,50 +140,130 @@
       <input type="hidden" name="area" value="default" />
     </form>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
     </div>
                 </div>
                 <div class="span8">
                         <div class="hero-unit">
-                            <h1>Project Name documentation</h1>
+                            <h1>Tip-Top ! documentation</h1>
                             <p>
                                 <!-- Your subtitle here-->
                             </p>
                         </div>
-                    <div class="section" id="documentation">
-<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
+                    <div class="section" id="tip-top-documentation">
+<h1>Tip-Top ! Documentation<a class="headerlink" href="#tip-top-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Tip-Top is a PHP micro-library to set timers and timeouts in your PHP
+code. It is based on <cite>SIGALRM</cite> signal, so it requires both posix and pcntl
+extensions.</p>
+</div>
+<div class="section" id="disclaimer">
+<h2>Disclaimer<a class="headerlink" href="#disclaimer" title="Permalink to this headline">¶</a></h2>
+<p>Due to PHP, timers and timeout may be triggered lately in case you use blocking
+calls like <cite>sleep(5)</cite>.</p>
+<p>A common workaround for <cite>sleep</cite> is to iterate 1 seconds sleeps :
+<cite>for ($i=0; $i!=5; $i++;) {sleep(1);}</cite>.</p>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>We rely on <a class="reference external" href="http://getcomposer.org/">composer</a> to use this library. If you do
+no still use composer for your project, you can start with this <tt class="docutils literal"><span class="pre">composer.json</span></tt>
+at the root of your project:</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;neutron/tip-top&quot;</span><span class="p">:</span> <span class="s2">&quot;0.1.x-dev&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Install composer :</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># Install composer</span>
+curl -s http://getcomposer.org/installer | php
+<span class="c"># Upgrade your install</span>
+php composer.phar install
+</pre></div>
+</div>
+<p>You now just have to autoload the library to use it :</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">require</span> <span class="s1">&#39;vendor/autoload.php&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This is a very short intro to composer.
+If you ever experience an issue or want to know more about composer,
+you will find help on their  website
+<a class="reference external" href="http://getcomposer.org/">http://getcomposer.org/</a>.</p>
 </div>
 <div class="section" id="basic-usage">
 <h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">Neutron\TipTop\Clock</span><span class="p">;</span>
+
+<span class="c1">// mandatory for the clock to work</span>
+<span class="k">declare</span><span class="p">(</span><span class="nx">ticks</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="nv">$clock</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Clock</span><span class="p">();</span>
+
+<span class="c1">// trigger a callback every second</span>
+<span class="nv">$clock</span><span class="o">-&gt;</span><span class="na">addPeriodicTimer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">echo</span> <span class="s2">&quot;BOOM ! I&#39;m triggered every second !</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="p">});</span>
+
+<span class="c1">// trigger a callback every ten seconds, five times</span>
+<span class="nv">$clock</span><span class="o">-&gt;</span><span class="na">addPeriodicTimer</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">echo</span> <span class="s2">&quot;Doubidou</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="p">},</span> <span class="mi">5</span><span class="p">);</span>
+
+<span class="c1">// trigger a callback one time, in 3 seconds</span>
+<span class="nv">$signature</span> <span class="o">=</span> <span class="nv">$clock</span><span class="o">-&gt;</span><span class="na">addTimer</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">echo</span> <span class="s2">&quot;BOOM !</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="p">},</span> <span class="mi">5</span><span class="p">);</span>
+
+<span class="c1">// remove a timer identified by a signature</span>
+<span class="nv">$clock</span><span class="o">-&gt;</span><span class="na">clear</span><span class="p">(</span><span class="nv">$signature</span><span class="p">);</span>
+
+<span class="c1">// do your job</span>
+<span class="nv">$n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="nv">$n</span><span class="o">--</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<div class="section" id="recipes">
-<h2>Recipes<a class="headerlink" href="#recipes" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="handling-exceptions">
 <h2>Handling Exceptions<a class="headerlink" href="#handling-exceptions" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="report-a-bug">
 <h2>Report a bug<a class="headerlink" href="#report-a-bug" title="Permalink to this headline">¶</a></h2>
+<p>If you experience an issue, please report it in our
+<a class="reference external" href="https://github.com/neutron/Tip-Top/issues">issue tracker</a>. Before
+reporting an issue, please be sure that it is not already reported by browsing
+open issues.</p>
 </div>
 <div class="section" id="ask-for-a-feature">
 <h2>Ask for a feature<a class="headerlink" href="#ask-for-a-feature" title="Permalink to this headline">¶</a></h2>
+<p>We would be glad you ask for a feature ! Feel free to add a feature request in
+the <a class="reference external" href="https://github.com/neutron/Tip-Top/issues">issues manager</a> on GitHub !</p>
 </div>
 <div class="section" id="contribute">
 <h2>Contribute<a class="headerlink" href="#contribute" title="Permalink to this headline">¶</a></h2>
+<p>You find a bug and resolved it ? You added a feature and want to share ? You
+found a typo in this doc and fixed it ? Feel free to send a
+<a class="reference external" href="http://help.github.com/send-pull-requests/">Pull Request</a> on GitHub, we will
+be glad to merge your code.</p>
 </div>
 <div class="section" id="run-tests">
 <h2>Run tests<a class="headerlink" href="#run-tests" title="Permalink to this headline">¶</a></h2>
+<p>Tip Top ! relies on <a class="reference external" href="http://www.phpunit.de/manual/current/en/">PHPUnit</a> for
+unit tests. To run tests on your system, ensure you have PHPUnit installed,
+and, at the root of the project, execute it :</p>
+<div class="highlight-bash"><div class="highlight"><pre>phpunit
+</pre></div>
+</div>
 </div>
 <div class="section" id="about">
 <h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+<p>Tip Top ! has been written by Romain Neutron based on a Bulat Shakirzyanov
+<cite>gist &lt;https://gist.github.com/3085581&gt;</cite>.</p>
 </div>
 <div class="section" id="license">
 <h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>RabbitMQ Management API client is licensed under the
+<a class="reference external" href="http://opensource.org/licenses/MIT">MIT License</a></p>
 </div>
 </div>
 
@@ -192,7 +272,7 @@
         </div>
         <hr/>
         <footer class="container">
-                &copy; Copyright 2012, Alchemy.
+                &copy; Copyright 2012, Romain Neutron.
             Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
         </footer>
 

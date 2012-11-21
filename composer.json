@@ -4,6 +4,9 @@
     "description": "Tip-Top, a library to set timeouts and periodic timers",
     "keywords": ["timeout", "period", "periodic", "timer"],
     "license": "MIT",
+    "config": {
+        "bin-dir": "bin"
+    },
     "authors": [
     {
         "name": "Romain Neutron",
@@ -15,6 +18,9 @@
         "php": ">=5.3.3",
         "ext-pcntl": "*",
         "ext-posix": "*"
+    },
+    "require-dev": {
+        "sami/sami": "dev-master"
     },
     "autoload": {
         "psr-0": {

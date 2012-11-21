@@ -1,24 +1,24 @@
 
 # project name
-project = u'Project Name'
+project = u'Tip-Top !'
 
 # Tex info conf
 texinfo_documents = [
-  ('index', 'Project name', u'Project Documentation',
-   u'Copyright holder', 'Project name', 'One line description of project.',
+  ('index', 'Tip-Top !', u'Tip-Top ! Documentation',
+   u'Romain Neutron', 'Tip-Top !', 'A PHP micro lib for timers and timeouts.',
    'Miscellaneous'),
 ]
 
 # Man page conf
 man_pages = [
-    ('index', 'projectname', u'PProject name Documentation',
-     [u'Copyright holder'], 1)
+    ('index', 'projectname', u'Tip-Top ! Documentation',
+     [u'Romain Neutron'], 1)
 ]
 
 # Latex doc conf
 latex_documents = [
-  ('index', 'ProjectName.tex', u'Project Name Documentation',
-   u'Copyright holder', 'manual'),
+  ('index', 'TipTop.tex', u'Tip-Top ! Documentation',
+   u'Romain Neutron', 'manual'),
 ]
 
 # html help basename
@@ -31,4 +31,4 @@ version = '0.1'
 release = '0.1'
 
 # Copyright Value  ex : copyright = u'2012, Alchemy'
-copyright = u'2012, Alchemy'
+copyright = u'2012, Romain Neutron'
