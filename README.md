@@ -4,6 +4,13 @@
 
 A micro library to set timeouts and periodic timers.
 
+## Documentation
+
+See [documentation](https://tip-top.readthedocs.org) for limitations, usage and evrything that has to be in
+documentation, like an [API browser](https://tip-top.readthedocs.org/en/latest/_static/API/) or other great things.
+
+[Tip-Top !](https://raw.github.com/romainneutron/Tip-Top/master/docs/source/_themes/Alchemy/static/img/project.png)
+
 ## Example
 
 There are two main methods on the `Neutron\TipTop\Clock` object :
@@ -20,27 +27,13 @@ $clock = new Clock();
 // trigger a callback every second
 $clock->addPeriodicTimer(1, function () { echo "BOOM ! I'm triggered every second !\n"; });
 
-// trigger a callback every ten seconds, five times
-$clock->addPeriodicTimer(10, function () { echo "Doubidou\n"; }, 5);
-
-// trigger a callback one time, in 3 seconds
-$signature = $clock->addTimer(3, function () { echo "BOOM !\n"; }, 5);
+// trigger a callback in 5 second
+$signature = $clock->addTimer(function () { echo "BOOM ! I was planned 5 seconds ago !\n"; });
 
 // remove a timer identified by a signature
 $clock->clear($signature);
 
-// do your job
-$n = 10;
-while ($n > 0) {
-    sleep(1);
-    $n--;
-}
 ```
-
-## Limitations
-
-- This clock requires you declare ticks in the script you're running.
-- Clock won't work as expected with long blocking calls (try it before)
 
 ##License
 
