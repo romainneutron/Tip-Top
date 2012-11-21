@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Neutron\TipTop\Clock | Tip-Top API</title>
+                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../classes.html">Classes</a></li>
+                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">Tip-Top API</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../Neutron/TipTop.html">Neutron\TipTop</a>\Clock</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>Clock</strong></p>
+
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_addPeriodicTimer">addPeriodicTimer</a>(integer $interval, <abbr title="Neutron\TipTop\callable">callable</abbr> $callback, integer $iterations = INF)
+                    <p>Adds a periodic timer (triggered every interval).</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_addTimer">addTimer</a>(integer $interval, <abbr title="Neutron\TipTop\callable">callable</abbr> $callback)
+                    <p>Adds a timer (triggered one time, when the interval is expired).</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_clear">clear</a>(string $signature = null)
+                    <p>Clears a timer by its signature.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method__beat">_beat</a>()
+                    <p>Internal method for the heartbeat, should not be used.</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 19</div>
+        <code>            public            
+    <strong>__construct</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_addPeriodicTimer">
+        <div class="location">at line 33</div>
+        <code>            public            string
+    <strong>addPeriodicTimer</strong>(integer $interval, <abbr title="Neutron\TipTop\callable">callable</abbr> $callback, integer $iterations = INF)</code>
+    </h3>
+    <div class="details">
+        <p>Adds a periodic timer (triggered every interval).</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>integer</td>
+                <td>$interval</td>
+                <td>The interval of the timer in seconds</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Neutron\TipTop\callable">callable</abbr></td>
+                <td>$callback</td>
+                <td>Any callable</td>
+            </tr>
+                    <tr>
+                <td>integer</td>
+                <td>$iterations</td>
+                <td>The number of time the callback must be triggered, infinite by default</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The signature of the timer</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_addTimer">
+        <div class="location">at line 46</div>
+        <code>            public            string
+    <strong>addTimer</strong>(integer $interval, <abbr title="Neutron\TipTop\callable">callable</abbr> $callback)</code>
+    </h3>
+    <div class="details">
+        <p>Adds a timer (triggered one time, when the interval is expired).</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>integer</td>
+                <td>$interval</td>
+                <td>The interval of the timer in seconds</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Neutron\TipTop\callable">callable</abbr></td>
+                <td>$callback</td>
+                <td>Any callable</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The signature of the timer</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_clear">
+        <div class="location">at line 58</div>
+        <code>            public            <a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a>
+    <strong>clear</strong>(string $signature = null)</code>
+    </h3>
+    <div class="details">
+        <p>Clears a timer by its signature.</p>
+        <p>If no signature provided, all timers are cleared.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$signature</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method__beat">
+        <div class="location">at line 72</div>
+        <code>            public            
+    <strong>_beat</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Internal method for the heartbeat, should not be used.</p>
+        <p></p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>
