@@ -9,7 +9,7 @@ A micro library to set timeouts and periodic timers.
 See [documentation](https://tip-top.readthedocs.org) for limitations, usage and evrything that has to be in
 documentation, like an [API browser](https://tip-top.readthedocs.org/en/latest/_static/API/) or other great things.
 
-![Tip-Top !](https://raw.github.com/romainneutron/Tip-Top/master/docs/source/_themes/Alchemy/static/img/project.png)
+[![Tip-Top !](https://raw.github.com/romainneutron/Tip-Top/master/docs/source/_themes/Alchemy/static/img/project.png)](https://tip-top.readthedocs.org)
 
 ## Example
 
