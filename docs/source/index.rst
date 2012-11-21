@@ -12,16 +12,16 @@ Disclaimer
 ----------
 
 Due to PHP, timers and timeout may be triggered lately in case you use blocking
-calls like `sleep(5)`.
+calls like ``sleep(5)``.
 
 A common workaround for `sleep` is to iterate 1 seconds sleeps :
-`for ($i=0; $i!=5; $i++;) {sleep(1);}`.
+``for ($i=0; $i!=5; $i++;) {sleep(1);}``.
 
 Limitations
 -----------
 
-- `Neutron\TipTop\Clock` requires you declare ticks in the script you're running.
-- `Neutron\TipTop\Clock` may not work as expected with blocking calls (try it before)
+- ``Neutron\TipTop\Clock`` requires you declare ticks in the script you're running.
+- ``Neutron\TipTop\Clock`` may not work as expected with blocking calls (try it before)
 
 Installation
 ------------
@@ -63,7 +63,7 @@ Basic Usage
 -----------
 
 You **MUST** declare ticks in the script where you're using
-`Neutron\TipTop\Clock`, it is mandatory for the clock to work.
+``Neutron\TipTop\Clock``, it is mandatory for the clock to work.
 
 .. code-block:: php
 
