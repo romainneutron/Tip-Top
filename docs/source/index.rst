@@ -135,7 +135,7 @@ About
 -----
 
 Tip Top ! has been written by Romain Neutron based on a Bulat Shakirzyanov
-`gist <https://gist.github.com/3085581>`.
+`gist <https://gist.github.com/3085581>`_.
 
 License
 -------
