@@ -25,16 +25,39 @@ declare(ticks=1);
 $clock = new Clock();
 
 // trigger a callback every second
-$clock->addPeriodicTimer(1, function () { echo "BOOM ! I'm triggered every second !\n"; });
+$clock->addPeriodicTimer(1, function (signature) { echo "BOOM ! I'm triggered every second !\n"; });
 
 // trigger a callback in 5 second
-$signature = $clock->addTimer(function () { echo "BOOM ! I was planned 5 seconds ago !\n"; });
+$signature = $clock->addTimer(function (signature) { echo "BOOM ! I was planned 5 seconds ago !\n"; });
 
-// remove a timer identified by a signature
-$clock->clear($signature);
+// remove all timers
+$clock->clear($);
 ```
 
-### block
+### Remove a timer
+
+You can remove a timer using the `clear` method :
+
+```php
+use Neutron\TipTop\Clock;
+
+// mandatory for the clock to work
+declare(ticks=1);
+
+$clock = new Clock();
+
+$stop = false;
+$clock->addPeriodicTimer(1, function ($signature) use ($clock, &$stop) {
+    if ($stop) {
+        $clock->clear($signature);
+    }
+});
+
+// remove all timers
+$clock->clear($);
+```
+
+### Block
 
 You can sometimes want to block until all timers have finished, use the `block`
 method to do that.
@@ -48,7 +71,7 @@ declare(ticks=1);
 $clock = new Clock();
 
 // echoes three times
-$clock->addPeriodicTimer(1, function () {
+$clock->addPeriodicTimer(1, function (signature) {
     echo "The block method blocks \n";
 }, 3);
 

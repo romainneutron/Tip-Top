@@ -93,7 +93,7 @@ class Clock
 
                 $timer = $this->timers[$signature];
 
-                call_user_func($timer->callback);
+                call_user_func($timer->callback, $signature);
                 $timer->iterations--;
 
                 if ($timer->iterations > 0) {
