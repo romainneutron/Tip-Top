@@ -1,7 +1,7 @@
 CHANGELOG
 =========
 
-* 0.1.1 (2013-xx-xx)
+* 0.1.1 (2013-05-13)
 
   * Add Clock::block feature
 
