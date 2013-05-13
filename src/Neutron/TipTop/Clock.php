@@ -21,6 +21,13 @@ class Clock
         $this->initialize();
     }
 
+    public function block()
+    {
+        while(0 < count($this->timers)) {
+            usleep(1000);
+        }
+    }
+
     /**
      * Adds a periodic timer (triggered every interval).
      *

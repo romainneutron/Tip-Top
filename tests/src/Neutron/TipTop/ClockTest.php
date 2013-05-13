@@ -206,4 +206,31 @@ class ClockTest extends \PHPUnit_Framework_TestCase
 
         $this->assertFalse($boolean);
     }
+
+    public function testBlockIsBlocking()
+    {
+        declare(ticks = 1);
+
+        $clock = new Clock();
+        $clock->addTimer(1, function () {});
+        $start = microtime(true);
+        $clock->block();
+        $duration = microtime(true) - $start;
+
+        $this->assertGreaterThan(1, $duration);
+        $this->assertLessThan(1.001, $duration);
+    }
+
+    public function testBlockWithoutTimerIsNotBlocking()
+    {
+        declare(ticks = 1);
+
+        $clock = new Clock();
+        $start = microtime(true);
+        $clock->block();
+        $duration = microtime(true) - $start;
+
+        $this->assertGreaterThan(0, $duration);
+        $this->assertLessThan(0.001, $duration);
+    }
 }

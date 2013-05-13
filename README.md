@@ -32,7 +32,28 @@ $signature = $clock->addTimer(function () { echo "BOOM ! I was planned 5 seconds
 
 // remove a timer identified by a signature
 $clock->clear($signature);
+```
 
+### block
+
+You can sometimes want to block until all timers have finished, use the `block`
+method to do that.
+
+```php
+use Neutron\TipTop\Clock;
+
+// mandatory for the clock to work
+declare(ticks=1);
+
+$clock = new Clock();
+
+// echoes three times
+$clock->addPeriodicTimer(1, function () {
+    echo "The block method blocks \n";
+}, 3);
+
+$clock->block();
+echo "This line will be blocked until last timer executes
 ```
 
 ##License
