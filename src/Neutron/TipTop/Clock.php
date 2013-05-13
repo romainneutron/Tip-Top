@@ -115,12 +115,16 @@ class Clock
 
         $sort = false;
 
+        $timers = $this->timers;
         foreach ($toReset as $moment => $signatures) {
             if (!isset($this->stack[$moment])) {
                 $this->stack[$moment] = array();
                 $sort = true;
             }
-            $this->stack[$moment] = array_merge($this->stack[$moment], $signatures);
+
+            $this->stack[$moment] = array_merge($this->stack[$moment], array_filter($signatures, function ($signature) use ($timers) {
+                return isset($timers[$signature]);
+            }));
         }
 
         if ($sort === true) {
