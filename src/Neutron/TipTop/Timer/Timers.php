@@ -115,8 +115,8 @@ class Timers
             call_user_func($timer->getCallback(), $timer);
 
             if ($timer->isPeriodic() && isset($timers[$timer])) {
-                $timer->removePeriod();
-                if (0 < $timer->getPeriods()) {
+                $timer->decrementIterations();
+                if (0 < $timer->getIterations()) {
                     $timers[$timer] = $scheduledAt = $timer->getInterval() + $time;
                     $scheduler->insert($timer, -$scheduledAt);
                 } else {

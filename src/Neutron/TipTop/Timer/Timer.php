@@ -18,10 +18,10 @@ class Timer implements TimerInterface
     protected $interval;
     protected $callback;
     protected $periodic;
-    protected $periods;
+    protected $iterations;
     protected $data;
 
-    public function __construct(Clock $clock, $interval, $callback, $periodic = false, $periods = INF, $data = null)
+    public function __construct(Clock $clock, $interval, $callback, $periodic = false, $iterations = INF, $data = null)
     {
         if (false === is_callable($callback)) {
             throw new InvalidArgumentException('The callback argument must be a valid callable object');
@@ -33,57 +33,87 @@ class Timer implements TimerInterface
         $this->periodic = (bool) $periodic;
 
         if ($this->periodic) {
-            $this->periods = $periods;
+            $this->iterations = $iterations;
         }
 
         $this->data = $data;
     }
 
+    /**
+     * @return Clock
+     */
     public function getClock()
     {
         return $this->clock;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getInterval()
     {
         return $this->interval;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getCallback()
     {
         return $this->callback;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setData($data)
     {
         $this->data = $data;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getData()
     {
         return $this->data;
     }
 
-    public function removePeriod()
+    /**
+     * {@inheritdoc}
+     */
+    public function decrementIterations()
     {
-        return $this->periods--;
+        return $this->iterations--;
     }
 
-    public function getPeriods()
+    /**
+     * {@inheritdoc}
+     */
+    public function getIterations()
     {
-        return $this->periods;
+        return $this->iterations;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function isPeriodic()
     {
         return $this->periodic;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function isActive()
     {
         return $this->clock->isTimerActive($this);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function cancel()
     {
         $this->clock->cancelTimer($this);
