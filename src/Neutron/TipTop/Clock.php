@@ -11,21 +11,81 @@
 
 namespace Neutron\TipTop;
 
-class Clock
-{
-    private $stack = array();
-    private $timers = array();
+use Evenement\EventEmitter;
+use Neutron\TipTop\Timer\Timer;
+use Neutron\TipTop\Timer\Timers;
+use Neutron\TipTop\Timer\TimerInterface;
 
-    public function __construct()
+class Clock extends EventEmitter
+{
+    private $pulse;
+    private $paused = false;
+    private $timers;
+    private $pulseCallback;
+
+    public function __construct(Pulse $pulse = null)
     {
-        $this->initialize();
+        $this->timers = new Timers($this);
+        $this->pulse = $pulse ?: Pulse::getInstance();
+        $this->pulseCallback = array($this, 'tick');
+        $this->pulse->on('tick', $this->pulseCallback);
+    }
+
+    public function getTimers()
+    {
+        return $this->timers;
+    }
+
+    public function setTimers(Timers $timers)
+    {
+        $this->timers = $timers;
+
+        return $this;
+    }
+
+    public function destroy()
+    {
+        $this->timers->clear();
+        $this->pulse->removeListener('tick', $this->pulseCallback);
+        $this->timers = $this->pulse = null;
+    }
+
+    public function pause()
+    {
+        $this->paused = true;
+    }
+
+    public function resume()
+    {
+        $this->paused = false;
+    }
+
+    public function isPaused()
+    {
+        return $this->paused;
     }
 
     public function block()
     {
-        while(0 < count($this->timers)) {
+        while(!$this->timers->isEmpty()) {
             usleep(1000);
         }
+    }
+
+    /**
+     * Adds a timer (triggered one time, when the interval is expired).
+     *
+     * @param  integer  $interval The interval of the timer in seconds
+     * @param  callable $callback Any callable
+     *
+     * @return string The signature of the timer
+     */
+    public function addTimer($interval, $callback)
+    {
+        $timer = new Timer($this, $interval, $callback, false);
+        $this->timers->add($timer);
+
+        return $timer;
     }
 
     /**
@@ -39,133 +99,39 @@ class Clock
      */
     public function addPeriodicTimer($interval, $callback, $iterations = INF)
     {
-        return $this->set($interval, $callback, $iterations);
+        $timer = new Timer($this, $interval, $callback, true, $iterations);
+        $this->timers->add($timer);
+
+        return $timer;
     }
 
-    /**
-     * Adds a timer (triggered one time, when the interval is expired).
-     *
-     * @param  integer  $interval The interval of the timer in seconds
-     * @param  callable $callback Any callable
-     *
-     * @return string The signature of the timer
-     */
-    public function addTimer($interval, $callback)
+    public function clear(TimerInterface $timer)
     {
-        return $this->set($interval, $callback, 1);
+        $this->cancelTimer($timer);
     }
 
-    /**
-     * Clears a timer by its signature. If no signature provided, all timers are cleared.
-     *
-     * @param  string $signature
-     *
-     * @return Clock
-     */
-    public function clear($signature = null)
+    public function cancelTimer(TimerInterface $timer)
     {
-        if ($signature && isset($this->timers[$signature])) {
-            unset($this->timers[$signature]);
-        } else {
-            $this->stack = $this->timers = array();
-        }
+        $this->timers->cancel($timer);
+    }
 
-        return $this;
+    public function cancelTimers()
+    {
+        $this->timers->clear();
+    }
+
+    public function isTimerActive(TimerInterface $timer)
+    {
+        return $this->timers->contains($timer);
     }
 
     /**
      * Internal method for the heartbeat, should not be used.
      */
-    public function _beat()
+    public function tick()
     {
-        $toReset = $toRemove = array();
-
-        foreach ($this->stack as $moment => $signatures) {
-            if ($moment > time()) {
-                break;
-            }
-
-            foreach ($signatures as $signature) {
-                if (!isset($this->timers[$signature])) {
-                    // timer has been cleared
-                    continue;
-                }
-
-                $timer = $this->timers[$signature];
-
-                call_user_func($timer->callback, $signature);
-                $timer->iterations--;
-
-                if ($timer->iterations > 0) {
-                    if (!isset($toReset[$moment + $timer->period])) {
-                        $toReset[$moment + $timer->period] = array();
-                    }
-                    array_push($toReset[$moment + $timer->period], $signature);
-                } else {
-                    unset($this->timers[$signature]);
-                }
-            }
-
-            $toRemove[] = $moment;
+        if (!$this->paused) {
+            $this->emit('tick', array($this));
         }
-
-        foreach ($toRemove as $moment) {
-            unset($this->stack[$moment]);
-        }
-
-        $sort = false;
-
-        $timers = $this->timers;
-        foreach ($toReset as $moment => $signatures) {
-            if (!isset($this->stack[$moment])) {
-                $this->stack[$moment] = array();
-                $sort = true;
-            }
-
-            $this->stack[$moment] = array_merge($this->stack[$moment], array_filter($signatures, function ($signature) use ($timers) {
-                return isset($timers[$signature]);
-            }));
-        }
-
-        if ($sort === true) {
-            ksort($this->stack);
-        }
-
-        pcntl_alarm(1);
-    }
-
-    private function initialize()
-    {
-        declare(ticks = 1);
-        pcntl_signal(SIGALRM, array($this, '_beat'), true);
-        pcntl_alarm((int) 1);
-    }
-
-    private function set($seconds, $callback, $iterations = INF)
-    {
-        $moment = time() + $seconds;
-
-        if (!isset($this->stack[$moment])) {
-            $this->stack[$moment] = array();
-            ksort($this->stack);
-        }
-
-        $data = (object) array(
-                'period'     => $seconds,
-                'callback'   => $callback,
-                'iterations' => $iterations,
-        );
-
-        $signature = $this->generateSignature();
-        $this->timers[$signature] = $data;
-
-        array_push($this->stack[$moment], $signature);
-
-        return $signature;
-    }
-
-    private function generateSignature()
-    {
-        return uniqid('', true);
     }
 }

@@ -15,12 +15,13 @@
     }
     ],
     "require": {
-        "php": ">=5.3.3",
-        "ext-pcntl": "*",
-        "ext-posix": "*"
+        "php"                 : ">=5.3.3",
+        "ext-pcntl"           : "*",
+        "ext-posix"           : "*",
+        "evenement/evenement" : "~1.0"
     },
     "require-dev": {
-        "sami/sami": "dev-master"
+        "sami/sami"           : "dev-master"
     },
     "autoload": {
         "psr-0": {
@@ -29,7 +30,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.1.x-dev"
+            "dev-master": "0.2.x-dev"
         }
     }
 }

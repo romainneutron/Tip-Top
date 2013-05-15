@@ -17,7 +17,7 @@
 
     <testsuites>
         <testsuite name="TipTop Tests Suite">
-            <directory>tests/Neutron/Tests</directory>
+            <directory>tests/Neutron/Functional</directory>
         </testsuite>
     </testsuites>
     <filter>

@@ -11,3 +11,4 @@ php:
 
 script:
   - phpunit
+  - phpunit -c phpunit-functional.xml.dist
