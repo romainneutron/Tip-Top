@@ -4,6 +4,14 @@
 
 A micro library to set timeouts and periodic timers.
 
+```php
+$clock = new Clock();
+// trigger a callback every second
+$timer = $clock->addPeriodicTimer(1, function ($timer) {
+    echo "BOOM ! I'm triggered every second !\n";
+});
+```
+
 It uses [Evenement](https://github.com/igorw/evenement). Most of the timers
 code has been taken from [ReactPHP](https://github.com/reactphp/react) timers
 implementation.
