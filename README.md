@@ -16,25 +16,38 @@ It uses [Evenement](https://github.com/igorw/evenement). Most of the timers
 code has been taken from [ReactPHP](https://github.com/reactphp/react) timers
 implementation.
 
-## Documentation
-
-See [documentation](https://tip-top.readthedocs.org) for limitations, usage and
-everything that has to be in documentation, like an
-[API browser](https://tip-top.readthedocs.org/en/latest/_static/API/) or other
-great things.
-
 [![Tip-Top !](https://raw.github.com/romainneutron/Tip-Top/master/docs/source/_themes/Alchemy/static/img/project.png)](https://tip-top.readthedocs.org)
+
+## Installation
+
+The recommended way to use tip-top is [through composer](http://getcomposer.org).
+
+```JSON
+{
+    "require": {
+        "neutron/tip-top": "0.2.*"
+    }
+}
+```
 
 ## Disclaimer
 
-### Is this blocking/non-blocking IO ?
+### Limitations
+
+- Tip-Top requires you declare ticks in the script you're running.
+```
+declare(ticks=1);
+```
+- Tip-Top may not work as expected with blocking calls (try it before)
+
+### Is this blocking or non-blocking IO ?
 
 TipTop is non blocking, but it has been designed to support some blocking
-calls. What you have to remember is that you may block for a 3 seconds, but
-timers would not be triggered. Once the blocking call ends, all timers that
-should have been triggered will be fired.
+calls. Timers and timeout may be triggered lately in case you use blocking
+calls like ``sleep(5)``.
 
-Think about long running processes that have to be checked regularly.
+A common workaround for `sleep` is to iterate 1 seconds sleeps :
+``for ($i=0; $i!=5; $i++;) {sleep(1);}``.
 
 ### Has the clock atomic precision ?
 
@@ -43,7 +56,16 @@ Unfortunately, this library is based on a hack on the
 the resolution of the clock is the second, and it has shift that is
 approximatively 0,001 second per second.
 
-## Examples
+### What's the use case for such clock ?
+
+Think about long running processes that have to be checked regularly.
+
+
+## Documentation
+
+[API browser](https://tip-top.readthedocs.org/en/latest/_static/API/).
+
+### Examples
 
 There are two main methods on the `Neutron\TipTop\Clock` object :
 `addPeriodicTimer` and `addTimer`.
@@ -130,6 +152,14 @@ $clock->addPeriodicTimer(1, function (signature) {
 $clock->block();
 echo "This line will be blocked until last timer executes
 ```
+
+### Tests
+
+Tip Top is functional and unit testable with PHPUnit.
+To run tests on your system, please be sure to install dev-dependencies with
+`composer install --dev`, then run either `bin/phpunit -c phpunit.xml.dist` for
+unit tests, either `bin/phpunit -c phpunit-functional.xml.dist` for functional
+tests.
 
 ##License
 
