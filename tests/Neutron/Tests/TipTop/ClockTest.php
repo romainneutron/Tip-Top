@@ -117,7 +117,7 @@ class ClockTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($caught, $timer);
         $this->assertTrue($timer->isPeriodic());
         $this->assertSame($callback, $timer->getCallback());
-        $this->assertEquals(INF, $timer->getPeriods());
+        $this->assertEquals(INF, $timer->getIterations());
     }
 
     public function testAddPeriodicTimerWithPeriods()
@@ -139,7 +139,7 @@ class ClockTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($caught, $timer);
         $this->assertTrue($timer->isPeriodic());
         $this->assertSame($callback, $timer->getCallback());
-        $this->assertEquals(4, $timer->getPeriods());
+        $this->assertEquals(4, $timer->getIterations());
     }
 
     public function testCancelTimer()
