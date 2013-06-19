@@ -23,7 +23,7 @@ class __TwigTemplate_1983fb1c51267f38a7e82f117f7c9a3c extends Twig_Template
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 3
-        $context["__internal_7f8dc6fb17bbcc3dfdf1a0bbf922a08a2d07cc33"] = $this->env->loadTemplate("macros.twig");
+        $context["__internal_0c45622cd99703703823498f1f5307113e635c66"] = $this->env->loadTemplate("macros.twig");
         $this->getParent($context)->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -70,7 +70,7 @@ class __TwigTemplate_1983fb1c51267f38a7e82f117f7c9a3c extends Twig_Template
                 echo "                <tr>
                     <td>";
                 // line 19
-                echo $context["__internal_7f8dc6fb17bbcc3dfdf1a0bbf922a08a2d07cc33"]->getclass_link((isset($context["class"]) ? $context["class"] : $this->getContext($context, "class")));
+                echo $context["__internal_0c45622cd99703703823498f1f5307113e635c66"]->getclass_link((isset($context["class"]) ? $context["class"] : $this->getContext($context, "class")));
                 echo "</td>
                     <td class=\"last\">";
                 // line 20
@@ -81,7 +81,7 @@ class __TwigTemplate_1983fb1c51267f38a7e82f117f7c9a3c extends Twig_Template
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['class'], $context['_parent'], $context['loop']);
-            $context = array_merge($_parent, array_intersect_key($context, $_parent));
+            $context = array_intersect_key($context, $_parent) + $_parent;
             // line 23
             echo "        </table>
     ";
@@ -103,7 +103,7 @@ class __TwigTemplate_1983fb1c51267f38a7e82f117f7c9a3c extends Twig_Template
                 echo "                <tr>
                     <td>";
                 // line 31
-                echo $context["__internal_7f8dc6fb17bbcc3dfdf1a0bbf922a08a2d07cc33"]->getclass_link((isset($context["interface"]) ? $context["interface"] : $this->getContext($context, "interface")));
+                echo $context["__internal_0c45622cd99703703823498f1f5307113e635c66"]->getclass_link((isset($context["interface"]) ? $context["interface"] : $this->getContext($context, "interface")));
                 echo "</td>
                     <td class=\"last\">";
                 // line 32
@@ -114,7 +114,7 @@ class __TwigTemplate_1983fb1c51267f38a7e82f117f7c9a3c extends Twig_Template
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['interface'], $context['_parent'], $context['loop']);
-            $context = array_merge($_parent, array_intersect_key($context, $_parent));
+            $context = array_intersect_key($context, $_parent) + $_parent;
             // line 35
             echo "        </table>
     ";
@@ -136,7 +136,7 @@ class __TwigTemplate_1983fb1c51267f38a7e82f117f7c9a3c extends Twig_Template
                 echo "                <tr>
                     <td>";
                 // line 43
-                echo $context["__internal_7f8dc6fb17bbcc3dfdf1a0bbf922a08a2d07cc33"]->getclass_link((isset($context["exception"]) ? $context["exception"] : $this->getContext($context, "exception")));
+                echo $context["__internal_0c45622cd99703703823498f1f5307113e635c66"]->getclass_link((isset($context["exception"]) ? $context["exception"] : $this->getContext($context, "exception")));
                 echo "</td>
                     <td class=\"last\">";
                 // line 44
@@ -147,7 +147,7 @@ class __TwigTemplate_1983fb1c51267f38a7e82f117f7c9a3c extends Twig_Template
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['exception'], $context['_parent'], $context['loop']);
-            $context = array_merge($_parent, array_intersect_key($context, $_parent));
+            $context = array_intersect_key($context, $_parent) + $_parent;
             // line 47
             echo "        </table>
     ";

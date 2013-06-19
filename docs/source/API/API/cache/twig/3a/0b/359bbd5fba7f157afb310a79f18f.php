@@ -25,7 +25,7 @@ class __TwigTemplate_3a0b359bbd5fba7f157afb310a79f18f extends Twig_Template
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 3
-        $context["__internal_0b2809edb3a3aeb1a0eb344cde454f0601c67232"] = $this->env->loadTemplate("macros.twig");
+        $context["__internal_580d57e5b4a46c6411657909b6a437dca29d686c"] = $this->env->loadTemplate("macros.twig");
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -72,7 +72,7 @@ class __TwigTemplate_3a0b359bbd5fba7f157afb310a79f18f extends Twig_Template
     {
         // line 21
         echo "    <h1>";
-        echo $context["__internal_0b2809edb3a3aeb1a0eb344cde454f0601c67232"]->getnamespace_link((isset($context["namespace"]) ? $context["namespace"] : $this->getContext($context, "namespace")), array("target" => "main"));
+        echo $context["__internal_580d57e5b4a46c6411657909b6a437dca29d686c"]->getnamespace_link((isset($context["namespace"]) ? $context["namespace"] : $this->getContext($context, "namespace")), array("target" => "main"));
         echo "</h1>
 
     ";
@@ -87,13 +87,13 @@ class __TwigTemplate_3a0b359bbd5fba7f157afb310a79f18f extends Twig_Template
             foreach ($context['_seq'] as $context["_key"] => $context["class"]) {
                 // line 26
                 echo "                <li>";
-                echo $context["__internal_0b2809edb3a3aeb1a0eb344cde454f0601c67232"]->getclass_link((isset($context["class"]) ? $context["class"] : $this->getContext($context, "class")), array("target" => "main"));
+                echo $context["__internal_580d57e5b4a46c6411657909b6a437dca29d686c"]->getclass_link((isset($context["class"]) ? $context["class"] : $this->getContext($context, "class")), array("target" => "main"));
                 echo "</li>
             ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['class'], $context['_parent'], $context['loop']);
-            $context = array_merge($_parent, array_intersect_key($context, $_parent));
+            $context = array_intersect_key($context, $_parent) + $_parent;
             // line 28
             echo "        </ul>
     ";
@@ -113,13 +113,13 @@ class __TwigTemplate_3a0b359bbd5fba7f157afb310a79f18f extends Twig_Template
             foreach ($context['_seq'] as $context["_key"] => $context["class"]) {
                 // line 35
                 echo "                <li>";
-                echo $context["__internal_0b2809edb3a3aeb1a0eb344cde454f0601c67232"]->getclass_link((isset($context["class"]) ? $context["class"] : $this->getContext($context, "class")), array("target" => "main"));
+                echo $context["__internal_580d57e5b4a46c6411657909b6a437dca29d686c"]->getclass_link((isset($context["class"]) ? $context["class"] : $this->getContext($context, "class")), array("target" => "main"));
                 echo "</li>
             ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['class'], $context['_parent'], $context['loop']);
-            $context = array_merge($_parent, array_intersect_key($context, $_parent));
+            $context = array_intersect_key($context, $_parent) + $_parent;
             // line 37
             echo "        </ul>
     ";
@@ -139,13 +139,13 @@ class __TwigTemplate_3a0b359bbd5fba7f157afb310a79f18f extends Twig_Template
             foreach ($context['_seq'] as $context["_key"] => $context["class"]) {
                 // line 44
                 echo "                <li>";
-                echo $context["__internal_0b2809edb3a3aeb1a0eb344cde454f0601c67232"]->getclass_link((isset($context["class"]) ? $context["class"] : $this->getContext($context, "class")), array("target" => "main"));
+                echo $context["__internal_580d57e5b4a46c6411657909b6a437dca29d686c"]->getclass_link((isset($context["class"]) ? $context["class"] : $this->getContext($context, "class")), array("target" => "main"));
                 echo "</li>
             ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['class'], $context['_parent'], $context['loop']);
-            $context = array_merge($_parent, array_intersect_key($context, $_parent));
+            $context = array_intersect_key($context, $_parent) + $_parent;
             // line 46
             echo "        </ul>
     ";

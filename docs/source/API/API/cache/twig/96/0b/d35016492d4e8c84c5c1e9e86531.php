@@ -82,7 +82,7 @@ class __TwigTemplate_960bd35016492d4e8c84c5c1e9e86531 extends Twig_Template
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['element'], $context['_parent'], $context['loop']);
-            $context = array_merge($_parent, array_intersect_key($context, $_parent));
+            $context = array_intersect_key($context, $_parent) + $_parent;
             // line 15
             echo "        ]";
         } catch (Exception $e) {

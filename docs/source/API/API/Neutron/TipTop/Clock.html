@@ -22,7 +22,7 @@
     <h1><a href="../../Neutron/TipTop.html">Neutron\TipTop</a>\Clock</h1>
     </div>
         <div class="content">
-                <p>class    <strong>Clock</strong></p>
+                <p>class    <strong>Clock</strong>        extends <abbr title="Evenement\EventEmitter">EventEmitter</abbr></p>
 
     
     
@@ -35,28 +35,18 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method___construct">__construct</a>()
+                    <a href="#method___construct">__construct</a>(<a href="../../Neutron/TipTop/Pulse.html"><abbr title="Neutron\TipTop\Pulse">Pulse</abbr></a> $pulse = null)
                     <p></p>
                 </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    string
+                    <a href="../../Neutron/TipTop/Timer/Timers.html"><abbr title="Neutron\TipTop\Timer\Timers">Timers</abbr></a>
                 </td>
                 <td class="last">
-                    <a href="#method_addPeriodicTimer">addPeriodicTimer</a>(integer $interval, <abbr title="Neutron\TipTop\callable">callable</abbr> $callback, integer $iterations = INF)
-                    <p>Adds a periodic timer (triggered every interval).</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    string
-                </td>
-                <td class="last">
-                    <a href="#method_addTimer">addTimer</a>(integer $interval, <abbr title="Neutron\TipTop\callable">callable</abbr> $callback)
-                    <p>Adds a timer (triggered one time, when the interval is expired).</p>
+                    <a href="#method_getTimers">getTimers</a>()
+                    <p></p>
                 </td>
                 <td></td>
             </tr>
@@ -65,8 +55,48 @@
                     <a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a>
                 </td>
                 <td class="last">
-                    <a href="#method_clear">clear</a>(string $signature = null)
-                    <p>Clears a timer by its signature.</p>
+                    <a href="#method_setTimers">setTimers</a>(<a href="../../Neutron/TipTop/Timer/Timers.html"><abbr title="Neutron\TipTop\Timer\Timers">Timers</abbr></a> $timers)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_destroy">destroy</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_pause">pause</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_resume">resume</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    Boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isPaused">isPaused</a>()
+                    <p></p>
                 </td>
                 <td></td>
             </tr>
@@ -75,7 +105,77 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method__beat">_beat</a>()
+                    <a href="#method_block">block</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Neutron/TipTop/Timer/TimerInterface.html"><abbr title="Neutron\TipTop\Timer\TimerInterface">TimerInterface</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_addTimer">addTimer</a>(integer $interval, <abbr title="Neutron\TipTop\callable">callable</abbr> $callback)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Neutron/TipTop/Timer/TimerInterface.html"><abbr title="Neutron\TipTop\Timer\TimerInterface">TimerInterface</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_addPeriodicTimer">addPeriodicTimer</a>(integer $interval, <abbr title="Neutron\TipTop\callable">callable</abbr> $callback, integer $iterations = INF)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_clear">clear</a>(<a href="../../Neutron/TipTop/Timer/TimerInterface.html"><abbr title="Neutron\TipTop\Timer\TimerInterface">TimerInterface</abbr></a> $timer)
+                    <p>Alias for cancelTimer</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_cancelTimer">cancelTimer</a>(<a href="../../Neutron/TipTop/Timer/TimerInterface.html"><abbr title="Neutron\TipTop\Timer\TimerInterface">TimerInterface</abbr></a> $timer)
+                    <p>Stops the given timer.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_cancelTimers">cancelTimers</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    Boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isTimerActive">isTimerActive</a>(<a href="../../Neutron/TipTop/Timer/TimerInterface.html"><abbr title="Neutron\TipTop\Timer\TimerInterface">TimerInterface</abbr></a> $timer)
+                    <p>Returns true if the timer is active.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_tick">tick</a>()
                     <p>Internal method for the heartbeat, should not be used.</p>
                 </td>
                 <td></td>
@@ -86,9 +186,188 @@
         <h2>Details</h2>
 
                         <h3 id="method___construct">
-        <div class="location">at line 19</div>
+        <div class="location">at line 30</div>
         <code>            public            
-    <strong>__construct</strong>()</code>
+    <strong>__construct</strong>(<a href="../../Neutron/TipTop/Pulse.html"><abbr title="Neutron\TipTop\Pulse">Pulse</abbr></a> $pulse = null)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../Neutron/TipTop/Pulse.html"><abbr title="Neutron\TipTop\Pulse">Pulse</abbr></a></td>
+                <td>$pulse</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getTimers">
+        <div class="location">at line 41</div>
+        <code>            public            <a href="../../Neutron/TipTop/Timer/Timers.html"><abbr title="Neutron\TipTop\Timer\Timers">Timers</abbr></a>
+    <strong>getTimers</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Neutron/TipTop/Timer/Timers.html"><abbr title="Neutron\TipTop\Timer\Timers">Timers</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setTimers">
+        <div class="location">at line 51</div>
+        <code>            public            <a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a>
+    <strong>setTimers</strong>(<a href="../../Neutron/TipTop/Timer/Timers.html"><abbr title="Neutron\TipTop\Timer\Timers">Timers</abbr></a> $timers)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../Neutron/TipTop/Timer/Timers.html"><abbr title="Neutron\TipTop\Timer\Timers">Timers</abbr></a></td>
+                <td>$timers</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_destroy">
+        <div class="location">at line 65</div>
+        <code>            public            <a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a>
+    <strong>destroy</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_pause">
+        <div class="location">at line 82</div>
+        <code>            public            <a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a>
+    <strong>pause</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_resume">
+        <div class="location">at line 98</div>
+        <code>            public            <a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a>
+    <strong>resume</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isPaused">
+        <div class="location">at line 112</div>
+        <code>            public            Boolean
+    <strong>isPaused</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>Boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_block">
+        <div class="location">at line 125</div>
+        <code>            public            
+    <strong>block</strong>()</code>
     </h3>
     <div class="details">
         <p></p>
@@ -100,13 +379,52 @@
                     </div>
     </div>
 
+                <h3 id="method_addTimer">
+        <div class="location">at line 142</div>
+        <code>            public            <a href="../../Neutron/TipTop/Timer/TimerInterface.html"><abbr title="Neutron\TipTop\Timer\TimerInterface">TimerInterface</abbr></a>
+    <strong>addTimer</strong>(integer $interval, <abbr title="Neutron\TipTop\callable">callable</abbr> $callback)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>integer</td>
+                <td>$interval</td>
+                <td>The interval of the timer in seconds</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Neutron\TipTop\callable">callable</abbr></td>
+                <td>$callback</td>
+                <td>Any callable</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Neutron/TipTop/Timer/TimerInterface.html"><abbr title="Neutron\TipTop\Timer\TimerInterface">TimerInterface</abbr></a></td>
+            <td>The timer</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
                 <h3 id="method_addPeriodicTimer">
-        <div class="location">at line 33</div>
-        <code>            public            string
+        <div class="location">at line 161</div>
+        <code>            public            <a href="../../Neutron/TipTop/Timer/TimerInterface.html"><abbr title="Neutron\TipTop\Timer\TimerInterface">TimerInterface</abbr></a>
     <strong>addPeriodicTimer</strong>(integer $interval, <abbr title="Neutron\TipTop\callable">callable</abbr> $callback, integer $iterations = INF)</code>
     </h3>
     <div class="details">
-        <p>Adds a periodic timer (triggered every interval).</p>
+        <p></p>
         <p></p>
         <div class="tags">
                             <h4>Parameters</h4>
@@ -134,47 +452,8 @@
 
                     <table>
         <tr>
-            <td>string</td>
-            <td>The signature of the timer</td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_addTimer">
-        <div class="location">at line 46</div>
-        <code>            public            string
-    <strong>addTimer</strong>(integer $interval, <abbr title="Neutron\TipTop\callable">callable</abbr> $callback)</code>
-    </h3>
-    <div class="details">
-        <p>Adds a timer (triggered one time, when the interval is expired).</p>
-        <p></p>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td>integer</td>
-                <td>$interval</td>
-                <td>The interval of the timer in seconds</td>
-            </tr>
-                    <tr>
-                <td><abbr title="Neutron\TipTop\callable">callable</abbr></td>
-                <td>$callback</td>
-                <td>Any callable</td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table>
-        <tr>
-            <td>string</td>
-            <td>The signature of the timer</td>
+            <td><a href="../../Neutron/TipTop/Timer/TimerInterface.html"><abbr title="Neutron\TipTop\Timer\TimerInterface">TimerInterface</abbr></a></td>
+            <td>The timer</td>
         </tr>
     </table>
 
@@ -184,20 +463,45 @@
     </div>
 
                 <h3 id="method_clear">
-        <div class="location">at line 58</div>
-        <code>            public            <a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a>
-    <strong>clear</strong>(string $signature = null)</code>
+        <div class="location">at line 174</div>
+        <code>            public            
+    <strong>clear</strong>(<a href="../../Neutron/TipTop/Timer/TimerInterface.html"><abbr title="Neutron\TipTop\Timer\TimerInterface">TimerInterface</abbr></a> $timer)</code>
     </h3>
     <div class="details">
-        <p>Clears a timer by its signature.</p>
-        <p>If no signature provided, all timers are cleared.</p>
+        <p>Alias for cancelTimer</p>
+        <p></p>
         <div class="tags">
                             <h4>Parameters</h4>
 
                     <table>
                     <tr>
-                <td>string</td>
-                <td>$signature</td>
+                <td><a href="../../Neutron/TipTop/Timer/TimerInterface.html"><abbr title="Neutron\TipTop\Timer\TimerInterface">TimerInterface</abbr></a></td>
+                <td>$timer</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_cancelTimer">
+        <div class="location">at line 188</div>
+        <code>            public            <a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a>
+    <strong>cancelTimer</strong>(<a href="../../Neutron/TipTop/Timer/TimerInterface.html"><abbr title="Neutron\TipTop\Timer\TimerInterface">TimerInterface</abbr></a> $timer)</code>
+    </h3>
+    <div class="details">
+        <p>Stops the given timer.</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../Neutron/TipTop/Timer/TimerInterface.html"><abbr title="Neutron\TipTop\Timer\TimerInterface">TimerInterface</abbr></a></td>
+                <td>$timer</td>
                 <td></td>
             </tr>
             </table>
@@ -217,10 +521,68 @@
                     </div>
     </div>
 
-                <h3 id="method__beat">
-        <div class="location">at line 72</div>
+                <h3 id="method_cancelTimers">
+        <div class="location">at line 202</div>
+        <code>            public            <a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a>
+    <strong>cancelTimers</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Neutron/TipTop/Clock.html"><abbr title="Neutron\TipTop\Clock">Clock</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isTimerActive">
+        <div class="location">at line 216</div>
+        <code>            public            Boolean
+    <strong>isTimerActive</strong>(<a href="../../Neutron/TipTop/Timer/TimerInterface.html"><abbr title="Neutron\TipTop\Timer\TimerInterface">TimerInterface</abbr></a> $timer)</code>
+    </h3>
+    <div class="details">
+        <p>Returns true if the timer is active.</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../Neutron/TipTop/Timer/TimerInterface.html"><abbr title="Neutron\TipTop\Timer\TimerInterface">TimerInterface</abbr></a></td>
+                <td>$timer</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>Boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_tick">
+        <div class="location">at line 224</div>
         <code>            public            
-    <strong>_beat</strong>()</code>
+    <strong>tick</strong>()</code>
     </h3>
     <div class="details">
         <p>Internal method for the heartbeat, should not be used.</p>
