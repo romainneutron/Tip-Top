@@ -165,8 +165,8 @@ class ClockTest extends \PHPUnit_Framework_TestCase
         $clock->block();
         $duration = microtime(true) - $start;
 
-        $this->assertGreaterThan(1, $duration);
-        $this->assertLessThan(1.002, $duration);
+        $this->assertGreaterThan(0.999, $duration);
+        $this->assertLessThan(1.001, $duration);
     }
 
     public function testBlockIsBlocking()
@@ -177,8 +177,8 @@ class ClockTest extends \PHPUnit_Framework_TestCase
         $clock->block();
         $duration = microtime(true) - $start;
 
-        $this->assertGreaterThan(1, $duration);
-        $this->assertLessThan(1.002, $duration);
+        $this->assertGreaterThan(0.999, $duration);
+        $this->assertLessThan(1.001, $duration);
     }
 
     public function testBlockWithoutTimerIsNotBlocking()
@@ -189,6 +189,6 @@ class ClockTest extends \PHPUnit_Framework_TestCase
         $duration = microtime(true) - $start;
 
         $this->assertGreaterThan(0, $duration);
-        $this->assertLessThan(0.002, $duration);
+        $this->assertLessThan(0.001, $duration);
     }
 }
