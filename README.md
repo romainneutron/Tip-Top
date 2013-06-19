@@ -6,7 +6,7 @@ A micro library to set timeouts and periodic timers.
 
 ```php
 $clock = new Clock();
-// trigger a callback every second
+// triggers a callback every second
 $timer = $clock->addPeriodicTimer(1, function ($timer) {
     echo "BOOM ! I'm triggered every second !\n";
 });
@@ -78,17 +78,17 @@ declare(ticks=1);
 
 $clock = new Clock();
 
-// trigger a callback every second
+// triggers a callback every second
 $timer = $clock->addPeriodicTimer(1, function ($timer) {
     echo "BOOM ! I'm triggered every second !\n";
 });
 
-// trigger a callback in 5 second
+// triggers a callback in 5 second
 $timer = $clock->addTimer(function ($timer) {
     echo "BOOM ! I was planned 5 seconds ago !\n";
 });
 
-// remove all timers
+// removes all timers
 $clock->clear();
 ```
 
@@ -127,7 +127,7 @@ $clock = new Clock();
 $timer = $clock->addPeriodicTimer(1, function ($timer) { echo "Hello"; });
 $timer = $clock->addPeriodicTimer(1, function ($timer) { echo "Hello World"; });
 
-// remove all timers
+// removes all timers
 $clock->clear();
 ```
 
