@@ -16,12 +16,13 @@
     ],
     "require": {
         "php"                 : ">=5.3.3",
+        "evenement/evenement" : "~1.0",
         "ext-pcntl"           : "*",
-        "ext-posix"           : "*",
-        "evenement/evenement" : "~1.0"
+        "ext-posix"           : "*"
     },
     "require-dev": {
-        "sami/sami"           : "dev-master"
+        "sami/sami"           : "~1.0",
+	"phpunit/phpunit"     : "~3.7"
     },
     "autoload": {
         "psr-0": {
