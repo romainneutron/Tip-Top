@@ -84,7 +84,7 @@ $timer = $clock->addPeriodicTimer(1, function ($timer) {
 });
 
 // triggers a callback in 5 second
-$timer = $clock->addTimer(function ($timer) {
+$timer = $clock->addTimer(5, function ($timer) {
     echo "BOOM ! I was planned 5 seconds ago !\n";
 });
 
