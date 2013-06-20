@@ -1,7 +1,7 @@
 CHANGELOG
 =========
 
-* 0.2.0 (2013-xx-xx)
+* 0.2.0 (2013-06-20)
 
   * BC Break : `Clock::addTimer` and `Clock::addPeriodicTimer` now returns
     `Timer` object (thanks to react implementation).
