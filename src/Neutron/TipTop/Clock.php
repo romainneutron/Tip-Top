@@ -58,7 +58,7 @@ class Clock extends EventEmitter
     /**
      * @api
      *
-     * Prepares the clock to be unset, release contained objects,
+     * Prepares the clock to be unset, releases contained objects,
      *
      * @return Clock
      */
